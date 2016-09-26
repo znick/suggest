@@ -21,7 +21,7 @@ class TestSuggester(unittest.TestCase):
         self.assertIn("раз", self.suggester.get("раз"))
 
     def test_prefix(self):
-        self.assertIn("р", self.suggester.get("раз"))
+        self.assertIn("раз", self.suggester.get("р"))
 
     def test_not_found(self):
         self.assertNotIn("три", self.suggester.get("три"))
@@ -29,9 +29,6 @@ class TestSuggester(unittest.TestCase):
     def test_bad_file(self):
         with self.assertRaises(FileNotFoundError):
             suggest.Suggester("no_such_file")
-
-    def test_false(self):
-        self.assert_(False)
 
 if __name__ == '__main__':
     unittest.main()
