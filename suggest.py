@@ -18,6 +18,10 @@ class Suggester:
 
     def get(self, word):
         found = []
+
+        if not word:
+            return found
+
         for w in self.words:
             if w.startswith(word):
                 found.append(w)
